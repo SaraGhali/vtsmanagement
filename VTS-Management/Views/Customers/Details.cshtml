@@ -1,0 +1,73 @@
+﻿@model VTS_Management.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Customer Details</h2>
+
+<div>
+    <hr />
+    <table class="table table-bordered table-hover">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CustomerId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CustomerId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CustomerName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CustomerEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CustomerEmail)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CustomerPhone)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CustomerPhone)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CustomerProject)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CustomerProject)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.CustomerDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.CustomerDetails)
+            </td>
+        </tr>
+    </table>
+          
+            
+
+            
+
+            
+
+        
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

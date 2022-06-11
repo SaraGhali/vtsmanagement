@@ -1,0 +1,17 @@
+﻿@media (min-width: 992px) {
+    .aside-enabled.subheader-fixed .subheader {
+        right: 0px;
+    }
+}
+
+@media (min-width: 992px) {
+    .aside-enabled .header.header-fixed {
+        right: 0px;
+    }
+}
+
+@media (min-width: 992px) {
+    .aside-fixed .wrapper {
+        padding-right: 0px;
+    }
+}

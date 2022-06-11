@@ -1,0 +1,69 @@
+﻿@model IEnumerable<VTS_Management.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectEmployee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectProfit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectCustomer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProjectSales)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectEmployee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectProfit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectCustomer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProjectSales)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProjectId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProjectId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProjectId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,74 @@
+﻿@model VTS_Management.Models.Project
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Project</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectEmployee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectEmployee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectProfit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectProfit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectCustomer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectCustomer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProjectSales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProjectSales)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProjectId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

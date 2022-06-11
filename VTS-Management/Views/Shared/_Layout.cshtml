@@ -1,42 +1,362 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+<!DOCTYPE html>
+
+<html direction="ltr" dir="ltr" style="direction: ltr" lang="en">
 <head>
+    <!--begin::Head-->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @*<meta name="description" content="Updates and statistics" />*@
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!--end::Layout Themes-->
+    <link rel="shortcut icon" href="~/Assets/media/logos/vts-logo.jpg" />
+    <!--js for popup messages-->
+    <script src="~/Assets/plugins/global/plugins.bundle.js"></script>
+    <script src="~/Assets/js/pages/features/miscellaneous/sweetalert2.js"></script>
+    <link href="/Assets/css/pages/wizard/wizard-3.css" rel="stylesheet" type="text/css" />
+    <!--begin::Global Theme Styles(used by all pages)-->
+    <link href="~/Assets/plugins/global/plugins.bundle.rtl.css" rel="stylesheet" type="text/css" />
+    <link href="/Assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="/Assets/css/vts-rtl-style.css" rel="stylesheet" type="text/css" />
+    <!--end::Global Theme Styles-->
+    <!--begin::Layout Themes(used by all pages)-->
+    <link href="/Assets/css/themes/layout/header/base/light.css" rel="stylesheet" type="text/css" />
+    <link href="/Assets/css/themes/layout/header/menu/light.css" rel="stylesheet" type="text/css" />
+    <link href="/Assets/css/themes/layout/brand/light.css" rel="stylesheet" type="text/css" />
+    <link href="/Assets/css/themes/layout/aside/light.css" rel="stylesheet" type="text/css" />
+    <link href="/Assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <!--end::Layout Themes-->
+    <script src="~/Assets/js/popupfunctionsEnglish.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.1/css/jquery.dataTables.css">
+    <style>
+        .row label span {
+            color: crimson !important;
+            font-size: small !important;
+            font-weight: bold !important;
+        }
+
+        .form-control {
+            margin-bottom: 10px;
+        }
+
+        .table td {
+            vertical-align: middle;
+            font-weight: normal;
+        }
+
+        tbody tr:first-child th {
+            padding: 5px !important;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: rgba(100, 100, 100, 0.60);
+            color: white;
+            font-size: larger;
+            font-weight: bold;
+        }
+
+        .cr {
+            color: crimson;
+        }
+
+        .pl-1 {
+            color: #3699FF;
+        }
+
+        .table {
+            text-align: center;
+        }
+
+        .UnitImage {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+            .UnitImage .btn {
+                position: absolute;
+                top: -2.6%;
+                left: -1.6%;
+            }
+        /*     .dataTables_wrapper .dataTables_length {
+            float: left;
+            text-align:center;
+        }
+        .dataTables_wrapper .dataTables_filter {
+            float: right;
+            text-align: right;
+        }*/
+        .row label span {
+            color: crimson !important;
+            font-size: large !important;
+            font-weight: bold !important;
+        }
+
+        /* .form-control {
+            display: -webkit-inline-box !important;
+        }*/
+    </style>
+    @RenderSection("styles", required: false)
+
+    <!--Page Title -->
+    <title>
+        VTS-Management |
+        @ViewBag.Title
+    </title>
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+
+<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed  page-loading" dir="ltr">
+
+    <!--begin::Main-->
+    <!--begin::Header Mobile-->
+    <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
+        <!--begin::Logo-->
+        <a href="/Home/Index">
+            <img alt="Logo" src="~/Assets/media/logos/vts-logo.jpg" style="height: 50px; width: 80px; object-fit: contain;" />
+        </a>
+        <!--end::Logo-->
+        <!--begin::Toolbar-->
+        <div class="d-flex align-items-center">
+            <!--begin::Aside Mobile Toggle-->
+            @*<button class="btn p-0 burger-icon burger-icon-left" id="kt_aside_mobile_toggle">
+                    <span></span>
+                </button>*@
+            <!--end::Aside Mobile Toggle-->
+            <!--begin::Header Menu Mobile Toggle-->
+            <button class="btn p-0 burger-icon ml-4" id="kt_header_mobile_toggle">
+                <span></span>
+            </button>
+
+            <!--end::Topbar Mobile Toggle-->
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+        <!--end::Toolbar-->
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    <!--end::Header Mobile-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+
+
+
+        <div class="d-flex flex-row flex-column-fluid page">
+
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+                <!--begin::Header-->
+                <div id="kt_header" class="header header-fixed">
+                    <!--begin::Container-->
+                    <div class="container-fluid d-flex align-items-stretch justify-content-between din-med">
+                        <!--begin::Header Menu Wrapper-->
+                        <div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+                            <!--begin::Header Menu-->
+                            <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default">
+                                <img alt="Logo" src="~/Assets/media/logos/vts-logo.jpg" style="height: 50px; width: 80px; object-fit: contain; margin-right:30px; margin-top:10px;" />
+
+                                <!--begin::Header Nav-->
+                                <ul class="menu-nav">
+
+                                    <li class="menu-item menu-item-active" aria-haspopup="true">
+                                        <a href="~/Customers/index" class="menu-link">
+                                            <i class="fas fa-people-arrows mr-1" style="color: #3699FF"></i>Customers
+                                        </a>
+                                        @*<div class="menu-submenu menu-submenu-classic menu-submenu-left">
+                                            <ul class="menu-subnav">
+                                                <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                    <a href="~/Sectors/SectorIndex" class="menu-link">
+                                                        <span class="svg-icon menu-icon">
+                                                            <i class="fa fa-city" style="color: #3699FF"></i>
+                                                        </span>
+                                                        <span class="menu-text">Sectors</span>
+                                                    </a>
+
+                                                </li>
+
+                                                <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                    <a href="~/GeneralManagements/GeneralManagementIndex" class="menu-link">
+                                                        <span class="svg-icon menu-icon">
+                                                            <i class="fas fa-building" style="color: #3699FF"></i>
+                                                        </span>
+                                                        <span class="menu-text">General Managements</span>
+                                                    </a>
+
+                                                </li>
+
+                                                <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                    <a href="~/Governments/GovernmentIndex" class="menu-link">
+                                                        <span class="svg-icon menu-icon">
+                                                            <i class="fas fa-map-marked" style="color: #3699FF"></i>
+                                                        </span>
+                                                        <span class="menu-text">Governments</span>
+                                                    </a>
+
+                                                </li>
+                                                <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                    <a href="~/Managements/ManagementIndex" class="menu-link">
+                                                        <span class="svg-icon menu-icon">
+                                                            <i class="fas fa-cog pr-1 pl-1"></i>
+                                                        </span>
+                                                        <span class="menu-text">Managements</span>
+                                                    </a>
+
+                                                </li>
+                                            </ul>
+
+                                        </div>*@
+                                    </li>
+
+                                    <li class="menu-item menu-item-active" aria-haspopup="true">
+                                        <a href="~/Projects/Index" class="menu-link">
+                                            <span class="menu-text"><i class="fas fa-laptop mr-1" style="color: #3699FF"></i>Projects</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="menu-item menu-item-active" aria-haspopup="true">
+                                        <a href="~/Employees/Index" class="menu-link">
+                                            <span class="menu-text"><i class="fas fa-people-carry mr-1" style="color: #3699FF"></i>Employees</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="menu-item menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here menu-item-active" data-menu-toggle="click" aria-haspopup="true">
+                                        <a href="javascript:;" class="menu-link menu-toggle">
+                                            <span class="menu-text"><i class="fas fa-sitemap mr-1" style="color: #3699FF"></i>Task Sheets</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="menu-item menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here menu-item-active" data-menu-toggle="click" aria-haspopup="true">
+                                        <a href="javascript:;" class="menu-link menu-toggle">
+                                            <span class="menu-text"><i class="fas fa-file-alt mr-1" style="color: #3699FF"></i>Vacations</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                                <!--end::Header Nav-->
+                            </div>
+                            <!--end::Header Menu-->
+                        </div>
+
+                        <!--end::Header Menu Wrapper-->
+                        <!--begin::Topbar-->
+                        <div class="topbar">
+                            <!--begin::Search-->
+                            <div class="btn btn-icon w-auto btn-clean d-flex my-auto align-items-center btn-lg px-2 " id="kt_quick_user_toggle">
+                                <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">
+                                </span>
+                                <span class="symbol symbol-35 symbol-light-success">
+                                    <asp:Image ID="imgUserPhoto" runat="server" CssClass="rounded" Style="object-fit: cover;" />
+                                </span>
+                            </div>
+                            <!--end::Search-->
+                            <!--begin::User-->
+                            <div class="topbar-item">
+
+
+                                @*<div> @Language.Welcome @ViewBag.CookieValues.Name</div>*@
+
+                                <a href="~/Account/SignOut" Class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2 din-bold pr-4 pl-4">
+                                    <i class="fa fa-sign-out-alt"></i>&nbsp;Log Out
+                                </a>
+
+                            </div>
+                            <!--end::User-->
+                        </div>
+                        <!--end::Topbar-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Header-->
+                <!--begin::Content-->
+                <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+
+                    <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
+                        <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                            <div class="d-flex align-items-center flex-wrap mr-2">
+                                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 din-bold">@RenderSection("title", false)</h5>
+                                <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-4 bg-gray-200"></div>
+                                <span class="text-muted font-weight-bold mr-4 din-med">
+                                    @RenderSection("subtitle", false)
+
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column-fluid">
+                        <div class="container din-bold mb-15">
+
+                            @RenderBody()
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!--end::Content-->
+                <!--begin::Footer-->
+                <div class="footer bg-white py-4 d-flex flex-lg-column fixed-bottom" id="kt_footer">
+                    <!--begin::Container-->
+                    <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+
+                        <!--begin::Copyright-->
+                        <div class="text-dark order-2 order-md-1">
+                            <span class="text-muted font-weight-bold mr-2">2022 ©</span>
+                            <a href="https://vts-co.com/" target="_blank" class="text-dark-25 text-hover-primary">VTS</a>
+                        </div>
+                        <!--end::Copyright-->
+                        <!--begin::Nav-->
+                        <!--end::Nav-->
+                    </div>
+                    <!--end::Container-->
+                </div>
+                <!--end::Footer-->
+            </div>
+            <!--end::Wrapper-->
+        </div>
+
+        <!--end::Page-->
+    </div>
+    <!--end::Main-->
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop">
+        <span class="svg-icon">
+            <!--begin::Svg Icon | path:assets/media/svg/icons/Navigation/Up-2.svg-->
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <polygon points="0 0 24 0 24 24 0 24" />
+                    <rect fill="#000000" opacity="0.3" x="11" y="10" width="2" height="10" rx="1" />
+                    <path d="M6.70710678,12.7071068 C6.31658249,13.0976311 5.68341751,13.0976311 5.29289322,12.7071068 C4.90236893,12.3165825 4.90236893,11.6834175 5.29289322,11.2928932 L11.2928932,5.29289322 C11.6714722,4.91431428 12.2810586,4.90106866 12.6757246,5.26284586 L18.6757246,10.7628459 C19.0828436,11.1360383 19.1103465,11.7686056 18.7371541,12.1757246 C18.3639617,12.5828436 17.7313944,12.6103465 17.3242754,12.2371541 L12.0300757,7.38413782 L6.70710678,12.7071068 Z" fill="#000000" fill-rule="nonzero" />
+                </g>
+            </svg>
+            <!--end::Svg Icon-->
+        </span>
+    </div>
+    <!--end::Scrolltop-->
+    <!--begin::Demo Panel-->
+    <!--end::Demo Panel-->
+    <!--begin::Global Config(global config for global JS scripts)-->
+    <!--end::Global Config-->
+    <!--begin::Global Theme Bundle(used by all pages)-->
+    <script src="~/Assets/js/scripts.bundle.js"></script>
+    <script src="~/Assets/plugins/custom/datatables/datatables.bundle.js"></script>
+    <!--end::Global Theme Bundle-->
+    <!--begin::Page Vendors(used by this page)-->
+    @*<script src="~/Assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js?v=7.0.5"></script>*@
+    @*<script src="../Admin_assets/js/searchableMultiple.js"></script>*@
+
     @RenderSection("scripts", required: false)
+
+    <script src="~/Assets/js/pages/crud/forms/widgets/select2.js"></script>
+    <script>
+        //$('select').select2({
+
+        //});
+        $(".SelectDropDownStyle").select2();
+
+        $(document).ready(function () {
+            $('#Table').DataTable();
+        });
+        $(document).ready(function () {
+            $('#Table2').DataTable();
+        });
+    </script>
+    <!--end::Page Scripts-->
+
+
 </body>
 </html>

@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* CSS Document */
+
+@font-face {
+    font-family: "DIN-BLACK";
+    src: url(DIN-BLACK.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "DIN-BOLD";
+   src: url(DIN-BOLD.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "DIN-MEDIUM";
+     src: url(DIN-MEDIUM-.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "DIN-LIGHT";
+     src: url(DIN-LIGHT.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.inputnumber::-webkit-outer-spin-button,
+.inputnumber::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+.inputnumber {
+    -moz-appearance: textfield;
+}
+
+
+.din-black{
+	   font-family: "DIN-BLACK" !important;
+}
+.din-bold{
+	   font-family: "DIN-BOLD" !important;
+}
+.din-med{
+	font-family: "DIN-MEDIUM" !important;
+}
+.din-light{
+	 font-family: "DIN-LIGHT" !important;
+}
+.btn.btn-primary {
+    color: #FFFFFF;
+    background-color: #2869ad;
+    border-color: #2869ad;
+}
+.btn.btn-text-primary {
+    color: #2869ad;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary, .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
+    background-color: #2869ad;
+    border-color: #2869ad;
+    color: #ffffff;
+}
+.switch.switch-outline.switch-primary input:checked ~ span:before {
+    border: 2px solid #2869ad;
+    background-color: transparent;
+}
+.switch.switch-outline.switch-primary input:checked ~ span:after {
+    color: #ffffff;
+    background-color: #2869ad;
+}
+.switch input:checked ~ span:after {
+    opacity: 1;
+    color: #ffffff;
+    background-color: #2869ad;
+}
+.radio > input:checked ~ span {
+    background-color: #2869ad;
+}
+.checkbox > input:checked ~ span {
+    background-color: #2869ad;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 1.3rem + 2px);
+    padding: 0.65rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #3F4254;
+    background-color: #ffffff;
+    background-clip: padding-box;
+    border: 0px solid #E4E6EF;
+    border-bottom: 1px solid #2869ad;
+	    border-radius: 0;
+}
+.form-control:focus {
+    color: #3F4254;
+    background-color: #ffffff;
+    border-color: #69b3ff;
+    outline: 0;
+    border: 1px solid #2869ad;
+}
+table.dataTable thead td {
+    text-align: center !important;
+ 
+    font-weight: 700 !important;
+    font-size: 16px !important;
+}
