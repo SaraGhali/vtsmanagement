@@ -4,69 +4,78 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Employee Details</h2>
 
 <div>
-    <h4>Employee</h4>
+    
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.EmployeeName)
-        </dt>
+    <table class="table table-bordered table-striped">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.EmployeeId)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.EmployeeName)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.EmployeeName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.EmployeePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.EmployeePhone)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.EmployeeAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.EmployeeAddress)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.EmployeeEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.EmployeeEmail)
+            </td>
+        </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.EmployeeName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EmployeePhone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmployeePhone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EmployeeAddress)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmployeeAddress)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EmployeeEmail)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmployeeEmail)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EmployeeSalary)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmployeeSalary)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EmployeeType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmployeeType)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EmployeeDetails)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EmployeeDetails)
-        </dd>
-
-    </dl>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.EmployeeSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.EmployeeSalary)
+            </td>
+        </tr>
+        <tr>
+    <td>
+        @Html.DisplayNameFor(model => model.EmployeeType)
+    </td>
+    <td>
+        @Html.DisplayFor(model => model.EmployeeType)
+    </td>
+</tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.EmployeeDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.EmployeeDetails)
+            </td>
+        </tr>
+    </table>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeId }) |

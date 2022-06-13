@@ -133,6 +133,7 @@
     <Compile Include="Models\Employee.cs">
       <DependentUpon>VtsManagementEntity.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmployeesCustom.cs" />
     <Compile Include="Models\Project.cs">
       <DependentUpon>VtsManagementEntity.tt</DependentUpon>
     </Compile>
