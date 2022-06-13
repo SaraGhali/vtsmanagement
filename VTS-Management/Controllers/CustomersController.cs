@@ -89,31 +89,31 @@ namespace VTS_Management.Controllers
             return View(customer);
         }
 
-        // GET: Customers/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Customer customer = db.Customers.Find(id);
-        //    if (customer == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(customer);
-        //}
+       // GET: Customers/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Customer customer = db.Customers.Find(id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            return View(customer);
+        }
 
-        //// POST: Customers/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Customer customer = db.Customers.Find(id);
-        //    db.Customers.Remove(customer);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
+        // POST: Customers/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Customer customer = db.Customers.Find(id);
+            db.Customers.Remove(customer);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
         protected override void Dispose(bool disposing)
         {
