@@ -4,69 +4,85 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Project Details</h2>
 
 <div>
-    <h4>Project</h4>
+   
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectName)
-        </dt>
+    <table class="table table-bordered">
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ProjectName)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProjectName)
-        </dd>
+            <td>
+                @Html.DisplayFor(model => model.ProjectName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ProjectType)
+            </td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectType)
-        </dt>
+            <td>
+                @Html.DisplayFor(model => model.ProjectType)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProjectType)
-        </dd>
+        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectEmployee)
-        </dt>
+       
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ProjectEmployee)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProjectEmployee)
-        </dd>
+            <td>
+                @Html.DisplayFor(model => model.ProjectEmployee)
+            </td>
+        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectCost)
-        </dt>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ProjectCost)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProjectCost)
-        </dd>
+            <td>
+                @Html.DisplayFor(model => model.ProjectCost)
+            </td>
+        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectProfit)
-        </dt>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ProjectProfit)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProjectProfit)
-        </dd>
+            <td>
+                @Html.DisplayFor(model => model.ProjectProfit)
+            </td>
+        </tr>
+        
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectCustomer)
-        </dt>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ProjectCustomer)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProjectCustomer)
-        </dd>
+            <td>
+                @Html.DisplayFor(model => model.ProjectCustomer)
+            </td>
+        </tr>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ProjectSales)
-        </dt>
+        <tr>
+            <td>
+                @Html.DisplayNameFor(model => model.ProjectSales)
+            </td>
 
-        <dd>
-            @Html.DisplayFor(model => model.ProjectSales)
-        </dd>
+            <td>
+                @Html.DisplayFor(model => model.ProjectSales)
+            </td>
+        </tr>
 
-    </dl>
+    </table>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ProjectId }) |
