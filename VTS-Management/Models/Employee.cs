@@ -22,5 +22,11 @@ namespace VTS_Management.Models
         public Nullable<double> EmployeeSalary { get; set; }
         public string EmployeeType { get; set; }
         public string EmployeeDetails { get; set; }
+        public Nullable<double> Bonus { get; set; }
+        public Nullable<System.DateTime> BonusDate { get; set; }
+        public string BonusReason { get; set; }
+        public Nullable<double> Deduction { get; set; }
+        public Nullable<System.DateTime> DeductionDate { get; set; }
+        public string DeductionReason { get; set; }
     }
 }

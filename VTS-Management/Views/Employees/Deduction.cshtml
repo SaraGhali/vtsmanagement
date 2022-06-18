@@ -1,0 +1,53 @@
+﻿@model VTS_Management.Models.Employee
+@{
+    ViewBag.Title = "Deduction";
+}
+
+
+<h2>Employee Deduction</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="form-label col-md-2">Employee Name</label>
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.EmployeeName, ViewBag.EmployeeList as SelectList, "-- Select Employee --", new { @class = "form-control col-md-6" })
+            @Html.ValidationMessageFor(model => model.EmployeeName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label col-md-2">Deduction Date</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DeductionDate, new { htmlAttributes = new { @class = "form-control col-md-6" } })
+            @Html.ValidationMessageFor(model => model.DeductionDate, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="form-label col-md-2">Deduction Case</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DeductionReason, new { htmlAttributes = new { @class = "form-control col-md-6" } })
+            @Html.ValidationMessageFor(model => model.DeductionReason, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-check form-check-inline ml-5 mr-5">
+        <input class="form-check-input" type="checkbox" value="option1">
+        <label class="form-check-label" for="inlineCheckbox1">Deduction with Value</label>
+    </div>
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+        <label class="form-check-label" for="inlineCheckbox2">Deduction by days</label>
+    </div>
+
+    <div class="form-group mt-5">
+        <label class="form-label col-md-2">Deduction Value</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Deduction, new { htmlAttributes = new { @class = "form-control col-md-6" } })
+            @Html.ValidationMessageFor(model => model.Deduction, "", new { @class = "text-danger" })
+        </div>
+    </div>
+</div>
+}

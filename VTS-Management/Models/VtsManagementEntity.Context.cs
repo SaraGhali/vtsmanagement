@@ -26,8 +26,8 @@ namespace VTS_Management.Models
         }
     
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Project> Projects { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Employee> Employees { get; set; }
     }
 }

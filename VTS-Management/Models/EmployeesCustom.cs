@@ -17,7 +17,7 @@ namespace VTS_Management.Models
         public int EmployeeId { get; set; }
 
         [Required]
-        [Display(Name = "Name")]
+        [Display(Name = "Employee")]
         public string EmployeeName { get; set; }
 
         [Required]
@@ -42,5 +42,21 @@ namespace VTS_Management.Models
 
         [Display(Name = "Details")]
         public string EmployeeDetails { get; set; }
+
+        [Required]
+        public Nullable<double> Bonus { get; set; }
+
+
+        [Required]
+        [Display(Name = "Date")]
+        public Nullable<System.DateTime> BonusDate { get; set; }
+        public string BonusReason { get; set; }
+        public Nullable<double> Deduction { get; set; }
+
+
+        [Required]
+        [Display(Name = "Date")]
+        public Nullable<System.DateTime> DeductionDate { get; set; }
+        public string DeductionReason { get; set; }
     }
 }

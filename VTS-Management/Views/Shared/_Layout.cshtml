@@ -153,12 +153,31 @@
                                 <!--begin::Header Nav-->
                                 <ul class="menu-nav">
 
-                                    <li class="menu-item menu-item-active" aria-haspopup="true">
-                                        <a href="~/Customers/index" class="menu-link">
-                                            <i class="fas fa-people-arrows mr-1" style="color: #3699FF"></i>Customers
+                                    <li class="menu-item menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here menu-item-active" data-menu-toggle="click" aria-haspopup="true">
+                                        <a href="javascript:;" class="menu-link menu-toggle">
+                                            <span class="menu-text"><i class="fas fa-cubes mr-1" style="color: #3699FF"></i>Customers</span>
+                                            <i class="menu-arrow"></i>
                                         </a>
-                                        @*<div class="menu-submenu menu-submenu-classic menu-submenu-left">
+                                        <div class="menu-submenu menu-submenu-classic menu-submenu-left">
                                             <ul class="menu-subnav">
+                                                <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                    <a href="~/Views/Customers/Index.cshtml" class="menu-link">
+                                                        <span class="svg-icon menu-icon">
+                                                            <i class="fa fa-city" style="color: #3699FF"></i>
+                                                        </span>
+                                                        <span class="menu-text">Show Customers</span>
+                                                    </a>
+
+                                                </li>
+                                                <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                    <a href="~/Views/Customers/Create.cshtml" class="menu-link">
+                                                        <span class="svg-icon menu-icon">
+                                                            <i class="fa fa-city" style="color: #3699FF"></i>
+                                                        </span>
+                                                        <span class="menu-text">Add New Customer</span>
+                                                    </a>
+
+                                                </li>
                                                 <li class="menu-item menu-item-active" aria-haspopup="true">
                                                     <a href="~/Sectors/SectorIndex" class="menu-link">
                                                         <span class="svg-icon menu-icon">
@@ -168,51 +187,63 @@
                                                     </a>
 
                                                 </li>
-
-                                                <li class="menu-item menu-item-active" aria-haspopup="true">
-                                                    <a href="~/GeneralManagements/GeneralManagementIndex" class="menu-link">
-                                                        <span class="svg-icon menu-icon">
-                                                            <i class="fas fa-building" style="color: #3699FF"></i>
-                                                        </span>
-                                                        <span class="menu-text">General Managements</span>
-                                                    </a>
-
-                                                </li>
-
-                                                <li class="menu-item menu-item-active" aria-haspopup="true">
-                                                    <a href="~/Governments/GovernmentIndex" class="menu-link">
-                                                        <span class="svg-icon menu-icon">
-                                                            <i class="fas fa-map-marked" style="color: #3699FF"></i>
-                                                        </span>
-                                                        <span class="menu-text">Governments</span>
-                                                    </a>
-
-                                                </li>
-                                                <li class="menu-item menu-item-active" aria-haspopup="true">
-                                                    <a href="~/Managements/ManagementIndex" class="menu-link">
-                                                        <span class="svg-icon menu-icon">
-                                                            <i class="fas fa-cog pr-1 pl-1"></i>
-                                                        </span>
-                                                        <span class="menu-text">Managements</span>
-                                                    </a>
-
-                                                </li>
                                             </ul>
-
-                                        </div>*@
+                                        </div>
                                     </li>
-
                                     <li class="menu-item menu-item-active" aria-haspopup="true">
                                         <a href="~/Projects/Index" class="menu-link">
                                             <span class="menu-text"><i class="fas fa-laptop mr-1" style="color: #3699FF"></i>Projects</span>
                                         </a>
                                     </li>
 
-                                    <li class="menu-item menu-item-active" aria-haspopup="true">
-                                        <a href="~/Employees/Index" class="menu-link">
-                                            <span class="menu-text"><i class="fas fa-people-carry mr-1" style="color: #3699FF"></i>Employees</span>
+                                    <li class="menu-item menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here menu-item-active" data-menu-toggle="click" aria-haspopup="true">
+                                        <a href="javascript:;" class="menu-link menu-toggle">
+                                            <span class="menu-text"><i class="fas fa-cubes mr-1" style="color: #3699FF"></i>Employees</span>
+                                            <i class="menu-arrow"></i>
                                         </a>
+                                        <div class="menu-submenu menu-submenu-classic menu-submenu-left">
+                                            <ul class="menu-subnav">
+                                                <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                    <a href="~/Views/Employees/Index.cshtml" class="menu-link">
+                                                        <span class="svg-icon menu-icon">
+                                                            <i class="fa fa-city" style="color: #3699FF"></i>
+                                                        </span>
+                                                        <span class="menu-text">Show Employees</span>
+                                                    </a>
+
+                                                </li>
+                                                <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                    <a href="~/Views/Employees/Create.cshtml" class="menu-link">
+                                                        <span class="svg-icon menu-icon">
+                                                            <i class="fa fa-city" style="color: #3699FF"></i>
+                                                        </span>
+                                                        <span class="menu-text">Add New Employee</span>
+                                                    </a>
+
+                                                </li>
+                                                <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                    <a href="~/Views/Employees/Deduction.cshtml" class="menu-link">
+                                                        <span class="svg-icon menu-icon">
+                                                            <i class="fa fa-city" style="color: #3699FF"></i>
+                                                        </span>
+                                                        <span class="menu-text">Employees Deductions</span>
+                                                    </a>
+
+                                                </li>
+                                                <li class="menu-item menu-item-active" aria-haspopup="true">
+                                                    <a href="~/Views/Employees/Bonus.cshtml" class="menu-link">
+                                                        <span class="svg-icon menu-icon">
+                                                            <i class="fa fa-city" style="color: #3699FF"></i>
+                                                        </span>
+                                                        <span class="menu-text">Employees Bonus</span>
+                                                    </a>
+
+                                                </li>
+
+                                            </ul>
+                                        </div>
                                     </li>
+
 
                                     <li class="menu-item menu-item-open menu-item-here menu-item-submenu menu-item-rel menu-item-open menu-item-here menu-item-active" data-menu-toggle="click" aria-haspopup="true">
                                         <a href="javascript:;" class="menu-link menu-toggle">
@@ -227,10 +258,10 @@
                                     </li>
 
                                 </ul>
-                                <!--end::Header Nav-->
-                            </div>
-                            <!--end::Header Menu-->
-                        </div>
+                                            <!--end::Header Nav-->
+                                        </div>
+                                        <!--end::Header Menu-->
+</div>
 
                         <!--end::Header Menu Wrapper-->
                         <!--begin::Topbar-->

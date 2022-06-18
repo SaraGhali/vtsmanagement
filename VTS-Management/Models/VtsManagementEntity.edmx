@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VTSManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="VTSManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Customers">
           <Key>
             <PropertyRef Name="CustomerId" />
@@ -28,6 +28,12 @@
           <Property Name="EmployeeSalary" Type="float" />
           <Property Name="EmployeeType" Type="nvarchar" MaxLength="50" />
           <Property Name="EmployeeDetails" Type="nvarchar(max)" />
+          <Property Name="Bonus" Type="float" />
+          <Property Name="BonusDate" Type="datetime" />
+          <Property Name="BonusReason" Type="nvarchar(max)" />
+          <Property Name="Deduction" Type="float" />
+          <Property Name="DeductionDate" Type="datetime" />
+          <Property Name="DeductionReason" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Projects">
           <Key>
@@ -58,8 +64,7 @@
           <EntitySet Name="Projects" EntityType="Self.Projects" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VTSManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -73,19 +78,6 @@
           <Property Name="CustomerPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CustomerProject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CustomerDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Employee">
-          <Key>
-            <PropertyRef Name="EmployeeId" />
-          </Key>
-          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EmployeePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EmployeeAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="EmployeeEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="EmployeeSalary" Type="Double" />
-          <Property Name="EmployeeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="EmployeeDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Project">
           <Key>
@@ -112,10 +104,29 @@
         </EntityType>
         <EntityContainer Name="VTSManagementEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customer" />
-          <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="Projects" EntityType="Self.Project" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="Employees" EntityType="VTSManagementModel.Employee" />
         </EntityContainer>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeId" />
+          </Key>
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeePhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeSalary" Type="Double" />
+          <Property Name="EmployeeType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Bonus" Type="Double" />
+          <Property Name="BonusDate" Type="DateTime" Precision="3" />
+          <Property Name="BonusReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Deduction" Type="Double" />
+          <Property Name="DeductionDate" Type="DateTime" Precision="3" />
+          <Property Name="DeductionReason" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -131,20 +142,6 @@
                 <ScalarProperty Name="CustomerPhone" ColumnName="CustomerPhone" />
                 <ScalarProperty Name="CustomerProject" ColumnName="CustomerProject" />
                 <ScalarProperty Name="CustomerDetails" ColumnName="CustomerDetails" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="VTSManagementModel.Employee">
-              <MappingFragment StoreEntitySet="Employees">
-                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
-                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
-                <ScalarProperty Name="EmployeePhone" ColumnName="EmployeePhone" />
-                <ScalarProperty Name="EmployeeAddress" ColumnName="EmployeeAddress" />
-                <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
-                <ScalarProperty Name="EmployeeSalary" ColumnName="EmployeeSalary" />
-                <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
-                <ScalarProperty Name="EmployeeDetails" ColumnName="EmployeeDetails" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -170,6 +167,26 @@
                 <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
                 <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
                 <ScalarProperty Name="UserType" ColumnName="UserType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="VTSManagementModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="DeductionReason" ColumnName="DeductionReason" />
+                <ScalarProperty Name="DeductionDate" ColumnName="DeductionDate" />
+                <ScalarProperty Name="Deduction" ColumnName="Deduction" />
+                <ScalarProperty Name="BonusReason" ColumnName="BonusReason" />
+                <ScalarProperty Name="BonusDate" ColumnName="BonusDate" />
+                <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+                <ScalarProperty Name="EmployeeDetails" ColumnName="EmployeeDetails" />
+                <ScalarProperty Name="EmployeeType" ColumnName="EmployeeType" />
+                <ScalarProperty Name="EmployeeSalary" ColumnName="EmployeeSalary" />
+                <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
+                <ScalarProperty Name="EmployeeAddress" ColumnName="EmployeeAddress" />
+                <ScalarProperty Name="EmployeePhone" ColumnName="EmployeePhone" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

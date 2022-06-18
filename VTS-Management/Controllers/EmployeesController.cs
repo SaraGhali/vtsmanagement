@@ -95,6 +95,24 @@ namespace VTS_Management.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public List<Employee> GetEmployeeList(){
+
+            List<Employee> Employees = db.Employees.ToList();
+
+            return Employees ;
+
+        }
+        public ActionResult Bonus()
+        {
+            ViewBag.EmployeeList = new SelectList(GetEmployeeList(), "EmployeeId", "EmployeeName");
+            return View();
+        }
+        public ActionResult Deduction()
+        {
+            ViewBag.EmployeeList = new SelectList(GetEmployeeList(), "EmployeeId", "EmployeeName");
+            return View();
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
